@@ -1,0 +1,15 @@
+﻿<doc>
+  <style name="NumbersAndStrings" color="#907040" />
+  <style name="Trigger" color="#008080" fontStyle="Bold" />
+  <style name="Comments" color="#4070a0" />
+  <style name="NormalVariable" color="#904090" />
+  <style name="MessageVariable" color="#904090" />
+  <rule style="Trigger">\([0-9]{1}\:[0-9]{1,2147483647}\)</rule>
+  <rule style="NumbersAndStrings">\{(.*?)\}</rule>
+  <rule style="Comments">\*.*</rule>
+  <rule style="NormalVariable">\%[\ba-zA-Z\d\D][\ba-zA-Z\d_]*</rule>
+  <rule style="MessageVariable">\~[\ba-zA-Z\d\D][\ba-zA-Z\d_]*</rule>
+  <rule style="NumbersAndStrings">(?&lt;![\(\d+\:\d+\)])\d+</rule>
+
+  <folding start="\*\/(.+)" finish="\*\\" options="IgnoreCase" />
+</doc>
