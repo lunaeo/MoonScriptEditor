@@ -53,25 +53,25 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMoonScriptEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.tsStatusLineColumn = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusLineCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.mainEditor = new FastColoredTextBoxNS.FastColoredTextBox();
             this.tabTriggers = new System.Windows.Forms.TabControl();
             this.tabCauses = new System.Windows.Forms.TabPage();
-            this.tabAdditionalConditions = new System.Windows.Forms.TabPage();
-            this.tabAreas = new System.Windows.Forms.TabPage();
-            this.tabFilters = new System.Windows.Forms.TabPage();
-            this.tabEffects = new System.Windows.Forms.TabPage();
-            this.tsStatusLineColumn = new System.Windows.Forms.ToolStripStatusLabel();
-            this.mainEditor = new FastColoredTextBoxNS.FastColoredTextBox();
             this.lvCauses = new MoonScriptEditor.ListViewWithoutHorizontalScrollBar();
             this.columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabAdditionalConditions = new System.Windows.Forms.TabPage();
             this.lvAdditionalConditions = new MoonScriptEditor.ListViewWithoutHorizontalScrollBar();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabAreas = new System.Windows.Forms.TabPage();
             this.lvAreas = new MoonScriptEditor.ListViewWithoutHorizontalScrollBar();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabFilters = new System.Windows.Forms.TabPage();
             this.lvFilters = new MoonScriptEditor.ListViewWithoutHorizontalScrollBar();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabEffects = new System.Windows.Forms.TabPage();
             this.lvEffects = new MoonScriptEditor.ListViewWithoutHorizontalScrollBar();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip.SuspendLayout();
@@ -81,13 +81,13 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainEditor)).BeginInit();
             this.tabTriggers.SuspendLayout();
             this.tabCauses.SuspendLayout();
             this.tabAdditionalConditions.SuspendLayout();
             this.tabAreas.SuspendLayout();
             this.tabFilters.SuspendLayout();
             this.tabEffects.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mainEditor)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -118,7 +118,7 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -127,7 +127,7 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -136,14 +136,14 @@
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -283,6 +283,12 @@
             this.statusStrip.Size = new System.Drawing.Size(764, 22);
             this.statusStrip.TabIndex = 1;
             // 
+            // tsStatusLineColumn
+            // 
+            this.tsStatusLineColumn.Name = "tsStatusLineColumn";
+            this.tsStatusLineColumn.Size = new System.Drawing.Size(22, 17);
+            this.tsStatusLineColumn.Text = "0:0";
+            // 
             // tsStatusLineCount
             // 
             this.tsStatusLineCount.Name = "tsStatusLineCount";
@@ -316,6 +322,46 @@
             this.splitContainer1.SplitterDistance = 265;
             this.splitContainer1.TabIndex = 0;
             // 
+            // mainEditor
+            // 
+            this.mainEditor.AllowMacroRecording = false;
+            this.mainEditor.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this.mainEditor.AutoIndent = false;
+            this.mainEditor.AutoIndentChars = false;
+            this.mainEditor.AutoIndentExistingLines = false;
+            this.mainEditor.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.mainEditor.BackBrush = null;
+            this.mainEditor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mainEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mainEditor.CharHeight = 14;
+            this.mainEditor.CharWidth = 8;
+            this.mainEditor.CommentPrefix = "*";
+            this.mainEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.mainEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.mainEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainEditor.FindEndOfFoldingBlockStrategy = FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy.Strategy2;
+            this.mainEditor.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.mainEditor.IsReplaceMode = false;
+            this.mainEditor.Location = new System.Drawing.Point(0, 0);
+            this.mainEditor.Name = "mainEditor";
+            this.mainEditor.Paddings = new System.Windows.Forms.Padding(0);
+            this.mainEditor.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.mainEditor.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("mainEditor.ServiceColors")));
+            this.mainEditor.Size = new System.Drawing.Size(764, 265);
+            this.mainEditor.TabIndex = 0;
+            this.mainEditor.WordWrapAutoIndent = false;
+            this.mainEditor.Zoom = 100;
+            // 
             // tabTriggers
             // 
             this.tabTriggers.Controls.Add(this.tabCauses);
@@ -341,94 +387,6 @@
             this.tabCauses.Text = "Causes";
             this.tabCauses.UseVisualStyleBackColor = true;
             // 
-            // tabAdditionalConditions
-            // 
-            this.tabAdditionalConditions.Controls.Add(this.lvAdditionalConditions);
-            this.tabAdditionalConditions.Location = new System.Drawing.Point(4, 22);
-            this.tabAdditionalConditions.Name = "tabAdditionalConditions";
-            this.tabAdditionalConditions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAdditionalConditions.Size = new System.Drawing.Size(756, 145);
-            this.tabAdditionalConditions.TabIndex = 1;
-            this.tabAdditionalConditions.Text = "Additional Conditions";
-            this.tabAdditionalConditions.UseVisualStyleBackColor = true;
-            // 
-            // tabAreas
-            // 
-            this.tabAreas.Controls.Add(this.lvAreas);
-            this.tabAreas.Location = new System.Drawing.Point(4, 22);
-            this.tabAreas.Name = "tabAreas";
-            this.tabAreas.Size = new System.Drawing.Size(756, 145);
-            this.tabAreas.TabIndex = 2;
-            this.tabAreas.Text = "Areas";
-            this.tabAreas.UseVisualStyleBackColor = true;
-            // 
-            // tabFilters
-            // 
-            this.tabFilters.Controls.Add(this.lvFilters);
-            this.tabFilters.Location = new System.Drawing.Point(4, 22);
-            this.tabFilters.Name = "tabFilters";
-            this.tabFilters.Size = new System.Drawing.Size(756, 145);
-            this.tabFilters.TabIndex = 3;
-            this.tabFilters.Text = "Filters";
-            this.tabFilters.UseVisualStyleBackColor = true;
-            // 
-            // tabEffects
-            // 
-            this.tabEffects.Controls.Add(this.lvEffects);
-            this.tabEffects.Location = new System.Drawing.Point(4, 22);
-            this.tabEffects.Name = "tabEffects";
-            this.tabEffects.Size = new System.Drawing.Size(756, 145);
-            this.tabEffects.TabIndex = 4;
-            this.tabEffects.Text = "Effects";
-            this.tabEffects.UseVisualStyleBackColor = true;
-            // 
-            // tsStatusLineColumn
-            // 
-            this.tsStatusLineColumn.Name = "tsStatusLineColumn";
-            this.tsStatusLineColumn.Size = new System.Drawing.Size(22, 17);
-            this.tsStatusLineColumn.Text = "0:0";
-            // 
-            // mainEditor
-            // 
-            this.mainEditor.AllowMacroRecording = false;
-            this.mainEditor.AutoCompleteBracketsList = new char[] {
-        '(',
-        ')',
-        '{',
-        '}',
-        '[',
-        ']',
-        '\"',
-        '\"',
-        '\'',
-        '\''};
-            this.mainEditor.AutoIndent = false;
-            this.mainEditor.AutoIndentChars = false;
-            this.mainEditor.AutoIndentExistingLines = false;
-            this.mainEditor.AutoScrollMinSize = new System.Drawing.Size(219, 168);
-            this.mainEditor.BackBrush = null;
-            this.mainEditor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.mainEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mainEditor.CharHeight = 14;
-            this.mainEditor.CharWidth = 8;
-            this.mainEditor.CommentPrefix = "*";
-            this.mainEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.mainEditor.DescriptionFile = "config\\syntax.xml";
-            this.mainEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.mainEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainEditor.FindEndOfFoldingBlockStrategy = FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy.Strategy2;
-            this.mainEditor.IsReplaceMode = false;
-            this.mainEditor.Location = new System.Drawing.Point(0, 0);
-            this.mainEditor.Name = "mainEditor";
-            this.mainEditor.Paddings = new System.Windows.Forms.Padding(0);
-            this.mainEditor.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.mainEditor.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("mainEditor.ServiceColors")));
-            this.mainEditor.Size = new System.Drawing.Size(764, 265);
-            this.mainEditor.TabIndex = 0;
-            this.mainEditor.Text = "* New MoonScript Script\r\n* Created by \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
-            this.mainEditor.WordWrapAutoIndent = false;
-            this.mainEditor.Zoom = 100;
-            // 
             // lvCauses
             // 
             this.lvCauses.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -450,6 +408,17 @@
             // columnHeader
             // 
             this.columnHeader.Width = 730;
+            // 
+            // tabAdditionalConditions
+            // 
+            this.tabAdditionalConditions.Controls.Add(this.lvAdditionalConditions);
+            this.tabAdditionalConditions.Location = new System.Drawing.Point(4, 22);
+            this.tabAdditionalConditions.Name = "tabAdditionalConditions";
+            this.tabAdditionalConditions.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAdditionalConditions.Size = new System.Drawing.Size(756, 145);
+            this.tabAdditionalConditions.TabIndex = 1;
+            this.tabAdditionalConditions.Text = "Additional Conditions";
+            this.tabAdditionalConditions.UseVisualStyleBackColor = true;
             // 
             // lvAdditionalConditions
             // 
@@ -473,6 +442,16 @@
             // 
             this.columnHeader1.Width = 730;
             // 
+            // tabAreas
+            // 
+            this.tabAreas.Controls.Add(this.lvAreas);
+            this.tabAreas.Location = new System.Drawing.Point(4, 22);
+            this.tabAreas.Name = "tabAreas";
+            this.tabAreas.Size = new System.Drawing.Size(756, 145);
+            this.tabAreas.TabIndex = 2;
+            this.tabAreas.Text = "Areas";
+            this.tabAreas.UseVisualStyleBackColor = true;
+            // 
             // lvAreas
             // 
             this.lvAreas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -495,6 +474,16 @@
             // 
             this.columnHeader2.Width = 730;
             // 
+            // tabFilters
+            // 
+            this.tabFilters.Controls.Add(this.lvFilters);
+            this.tabFilters.Location = new System.Drawing.Point(4, 22);
+            this.tabFilters.Name = "tabFilters";
+            this.tabFilters.Size = new System.Drawing.Size(756, 145);
+            this.tabFilters.TabIndex = 3;
+            this.tabFilters.Text = "Filters";
+            this.tabFilters.UseVisualStyleBackColor = true;
+            // 
             // lvFilters
             // 
             this.lvFilters.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -516,6 +505,16 @@
             // columnHeader3
             // 
             this.columnHeader3.Width = 730;
+            // 
+            // tabEffects
+            // 
+            this.tabEffects.Controls.Add(this.lvEffects);
+            this.tabEffects.Location = new System.Drawing.Point(4, 22);
+            this.tabEffects.Name = "tabEffects";
+            this.tabEffects.Size = new System.Drawing.Size(756, 145);
+            this.tabEffects.TabIndex = 4;
+            this.tabEffects.Text = "Effects";
+            this.tabEffects.UseVisualStyleBackColor = true;
             // 
             // lvEffects
             // 
@@ -564,13 +563,13 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainEditor)).EndInit();
             this.tabTriggers.ResumeLayout(false);
             this.tabCauses.ResumeLayout(false);
             this.tabAdditionalConditions.ResumeLayout(false);
             this.tabAreas.ResumeLayout(false);
             this.tabFilters.ResumeLayout(false);
             this.tabEffects.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mainEditor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

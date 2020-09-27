@@ -26,7 +26,10 @@ namespace MoonScriptEditor
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var reader = new DSList(Path.Combine("config", "mslist.ini"));
+            mainEditor.DescriptionFile = Path.Combine("config", "editor", "syntax.xml");
+            mainEditor.InsertText(this.DefaultText);
+
+            var reader = new DSList(Path.Combine("config", "editor", "mslist.ini"));
 
             mainEditor.TextChanged += (x, z) =>
             {
@@ -183,7 +186,11 @@ namespace MoonScriptEditor
             if (string.IsNullOrEmpty(this.CurrentFileName))
                 this.OpenSaveFileDialog();
             else
+            {
                 mainEditor.SaveToFile(this.CurrentFileName, Encoding.UTF8);
+                this.ChangesPending = false;
+                this.Text = $"MoonScript Editor - {this.CurrentFileName}";
+            }
         }
 
         private void OpenSaveFileDialog()
@@ -235,6 +242,7 @@ namespace MoonScriptEditor
                 this.Text = $"MoonScript Editor - {fileName}";
                 mainEditor.Clear();
                 mainEditor.Text = File.ReadAllText(fileName);
+                this.CurrentFileName = fileName;
                 this.ListenForChanges = true;
             }
         }
