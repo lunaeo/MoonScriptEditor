@@ -26,7 +26,7 @@ namespace MoonScriptEditor
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var reader = new DSList(@"C:\Users\atilla\Desktop\Projects\local\EOApocalypse\MoonScriptEditor\dslist.ini");
+            var reader = new DSList(Path.Combine("config", "mslist.ini"));
 
             mainEditor.TextChanged += (x, z) =>
             {

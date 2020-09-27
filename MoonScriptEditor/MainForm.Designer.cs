@@ -413,8 +413,7 @@
             this.mainEditor.CharWidth = 8;
             this.mainEditor.CommentPrefix = "*";
             this.mainEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.mainEditor.DescriptionFile = "C:\\Users\\atilla\\Desktop\\Projects\\local\\MoonScriptEditor\\MoonScriptEditor\\config\\s" +
-    "yntax.xml";
+            this.mainEditor.DescriptionFile = "config\\syntax.xml";
             this.mainEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.mainEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainEditor.FindEndOfFoldingBlockStrategy = FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy.Strategy2;
