@@ -388,5 +388,27 @@ namespace MoonScriptEditor
             mainEditor.Focus();
             this.ListenForChanges = true;
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.ChangesPending)
+            {
+                var pending_message = MessageBox.Show(
+                    "Current file has not been saved.\nDo you want to save it before closing?",
+                    "Confirmation",
+                    MessageBoxButtons.YesNoCancel);
+
+                switch (pending_message)
+                {
+                    case DialogResult.Yes:
+                        this.TryToSave();
+                        break;
+
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        return;
+                }
+            }
+        }
     }
 }
