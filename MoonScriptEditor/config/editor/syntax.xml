@@ -9,7 +9,7 @@
   <rule style="Comments">\*.*</rule>
   <rule style="NormalVariable">\%[\ba-zA-Z\d\D][\ba-zA-Z\d_]*</rule>
   <rule style="MessageVariable">\~[\ba-zA-Z\d\D][\ba-zA-Z\d_]*</rule>
-  <rule style="NumbersAndStrings">(?&lt;![\(\d+\:\d+\)])\d+</rule>
+  <rule style="NumbersAndStrings">(?&lt;=\(\d+\:\d+\).*)\d+</rule>
 
   <folding start="\*\/(.+)" finish="\*\\" options="IgnoreCase" />
 </doc>
