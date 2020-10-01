@@ -20,6 +20,7 @@ namespace MoonScriptEditor
 
         public MainForm()
         {
+            this.DoubleBuffered = true;
             this.AboutDialog = new AboutForm();
             InitializeComponent();
         }
