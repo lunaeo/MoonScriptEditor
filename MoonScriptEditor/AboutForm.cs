@@ -16,13 +16,13 @@ namespace MoonScriptEditor
             Process.Start(aboutLink.Text);
         }
 
-        private void pictureBoxAboutIcon_Click(object sender, EventArgs e) => 
+        private void pictureBoxAboutIcon_Click(object sender, EventArgs e) =>
             this.Close();
 
-        private void AboutForm_Click(object sender, EventArgs e) => 
+        private void AboutForm_Click(object sender, EventArgs e) =>
             this.Close();
 
-        private void labelAboutSubHeader_Click(object sender, EventArgs e) => 
+        private void labelAboutSubHeader_Click(object sender, EventArgs e) =>
             this.Close();
     }
 }
