@@ -6,6 +6,11 @@ namespace MoonScriptEditor
 {
     public class ListViewWithoutHorizontalScrollBar : ListView
     {
+        public ListViewWithoutHorizontalScrollBar() : base()
+        {
+            this.DoubleBuffered = true;
+        }
+
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
