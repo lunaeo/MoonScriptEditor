@@ -38,12 +38,12 @@ namespace MoonScriptEditor
                     for (var i = 4; i <= matches.Count - 1; i++)
                         hints.Add(matches[i].Value.Substring(1, matches[i].Value.Length - 2));
 
-                this.Triggers.Add((category, id, description, hints.ToArray()));
+                this.Triggers.Add((level, category, id, description, hints.ToArray()));
             }
         }
 
-        public List<(int category, int id, string description, string[] hints)> Triggers
-            = new List<(int category, int id, string description, string[] hints)>();
+        public List<(int level, int category, int id, string description, string[] hints)> Triggers
+            = new List<(int level, int category, int id, string description, string[] hints)>();
 
         public string FileName { get; }
     }

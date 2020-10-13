@@ -45,7 +45,7 @@ namespace MoonScriptEditor
             {
                 mainEditor.CaretVisible = true;
                 tsStatusLineColumn.Text = $"{mainEditor.Selection.End.iLine + 1}:{mainEditor.Selection.End.iChar + 1}";
-                tsStatusLineCount.Text = $"{mainEditor.LinesCount} lines displayed.";
+                tsStatusLineCount.Text = $"{mainEditor.LinesCount} lines total.";
             };
 
             mainEditor.Selection.Start = new Place(mainEditor.Lines[1].Length, 1);
@@ -72,10 +72,11 @@ namespace MoonScriptEditor
             lvEffects.DrawItem += this.DrawTriggerListViewItem;
             lvEffects.DoubleClick += this.DoubleClickTrigger;
 
-            foreach (var (category, id, description, hints) in reader.Triggers)
+            foreach (var (level, category, id, description, hints) in reader.Triggers)
             {
                 var item = new TriggerViewItem()
                 {
+                    Level = level,
                     Category = category,
                     Id = id,
                     Description = description,
@@ -248,17 +249,21 @@ namespace MoonScriptEditor
             }
         }
 
+        private static SolidBrush AddonTriggerBackgroundColor = new SolidBrush(Color.FromArgb(255, 240, 240));
+
         private void DrawTriggerListViewItem(object lvSender, DrawListViewItemEventArgs lvEvent)
         {
-            lvEvent.Graphics.FillRectangle(Brushes.White, lvEvent.Bounds);
-            if ((lvEvent.State & ListViewItemStates.Selected) != 0)
-                lvEvent.DrawFocusRectangle();
-
             var item = (lvEvent.Item as TriggerViewItem);
+            var level = item.Level;
             var category = item.Category;
             var id = item.Id;
             var description = item.Description;
             var hints = item.Hints;
+
+            lvEvent.Graphics.FillRectangle(level == 6 ? AddonTriggerBackgroundColor : Brushes.White, lvEvent.Bounds);
+
+            if ((lvEvent.State & ListViewItemStates.Selected) != 0)
+                lvEvent.DrawFocusRectangle();
 
             string ReplaceFirst(string text, string search, string replace)
             {
